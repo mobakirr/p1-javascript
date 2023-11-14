@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Cookiewall</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+    .modal input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    .modal button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: #ff5454;
+      padding: 20px;
+      color: white;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal" id="myModal">
+  <p>Geef je leeftijd op:</p>
+  <input type="number" id="leeftijd" placeholder="Leeftijd">
+  <button onclick="controleerLeeftijd()">Verifiëren</button>
+</div>
+
+<div class="message" id="message">
+  <p>Helaas, je bent te jong.</p>
+</div>
+
+<button onclick="openModal()">Toon Cookiewall</button>
+
+<script>
+  function openModal() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("myModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("myModal").style.display = "none";
+  }
+
+  function showMessage() {
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("message").style.display = "block";
+  }
+
+  function controleerLeeftijd() {
+    var leeftijd = document.getElementById("leeftijd").value;
+
+    if (leeftijd && leeftijd >= 18) {
+      // Redirect naar een website naar keuze
+      window.location.href = "https://www.example.com";
+    } else {
+      showMessage();
+    }
+
+    closeModal();
+  }
+</script>
+
+</body>
+</html>
