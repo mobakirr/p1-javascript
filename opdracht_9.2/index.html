@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 180px;
+    }
+
+    #monkey {
+      width: 500px;
+      height: 500px;
+      cursor: pointer;
+      font-size: 150px; /* Adjust the font-size as needed */
+      color: brown;
+      text-align: center;
+    }
+  </style>
+  <title>Monkey See - Monkey Hide</title>
+</head>
+<body>
+  <div id="monkey" onclick="toggleStatus('monkey')">🐵</div>
+
+  <script>
+    function toggleStatus(elementId) {
+      const monkeyElement = document.getElementById(elementId);
+
+      if (monkeyElement.innerHTML === '🐵') {
+        monkeyElement.innerHTML = '🙈';
+      } else {
+        monkeyElement.innerHTML = '🐵';
+      }
+    }
+  </script>
+</body>
+</html>
